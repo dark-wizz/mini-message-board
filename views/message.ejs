@@ -1,0 +1,11 @@
+<h1> Message Detail </h1>
+
+<% messages.forEach((m)=>{ %>
+<% if (m.user == name){ %>
+    <p>User: 
+    <%= m.user %><p>
+    <p>Message: 
+    <%= m.text %><p>
+    <p>date: 
+    <%= m.added %><p>
+<% }}) %> 
