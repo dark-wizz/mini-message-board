@@ -8,7 +8,11 @@ exports.getAllData = async () => {
 };
 
 exports.insertMsgs = async (args) => {
-  await pool.query(`INSERT INTO messages values ($1, $2)`, args);
+  await pool.query(
+    `INSERT INTO messages (user_name, text)
+  values ($1, $2)`,
+    args,
+  );
 };
 
 exports.getMsg = async (id) => {

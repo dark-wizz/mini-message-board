@@ -6,14 +6,15 @@ require("dotenv").config();
 
 const SQL = `
 CREATE TABLE IF NOT EXISTS messages(
+  id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
   user_name VARCHAR(255) NOT NULL,
   text text,
   date DATE NOT NULL DEFAULT CURRENT_DATE,
   time TIME NOT NULL DEFAULT CURRENT_TIME
 );
 
-INSERT INTO messages values('Akram', 'Hi there!');
-INSERT INTO messages values('Jessie', 'Hello world!');
+INSERT INTO messages (user_name, text) values('Akram', 'Hi there!');
+INSERT INTO messages (user_name, text) values('Jessie', 'Hello world!');
 
 `;
 
