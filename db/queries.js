@@ -3,13 +3,8 @@ const { Pool } = require("pg");
 const pool = new Pool();
 
 exports.getAllData = async () => {
-  const { row } = await pool.query(`SELECT * FROM messages;`);
-  return row;
-};
-
-exports.getMsgs = async () => {
-  const { row } = await pool.query(`SELECT (user_name, text) FROM messages;`);
-  return row;
+  const { rows } = await pool.query(`SELECT * FROM messages;`);
+  return rows;
 };
 
 exports.insertMsgs = async (args) => {

@@ -11,7 +11,7 @@
     <button><a href="/new"> Add new message</a> </button>
     <% messages.forEach((m)=>{ %>
     <p> 
-      <%= m.user %>:
+      <%= m.user_name %>:
       <%= m.text %>
       <button> <a href="/message/<%= m.user %>"> view details </a></button>
     </p>
