@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const db = require("./db/queries.js");
 const msgRouter = require("./routes/message");
 const messages = require("./models/messages.js");
 const newController = require("./controllers/newController.js");
