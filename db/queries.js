@@ -12,8 +12,12 @@ exports.insertMsgs = async (args) => {
 };
 
 exports.getMsg = async (id) => {
-  const { rows } = await pool.query(`SELECT * from messages where id = $1`, [
-    id,
-  ]);
+  const q = `
+  SELECT *,
+  TO_CHAR(date, 'Mon dd, yyyy') AS fdate, TO_CHAR(time, 'HH:MI:SS') AS ftime
+  FROM messages
+  WHERE id = $1;
+`;
+  const { rows } = await pool.query(q, [id]);
   return rows;
 };
