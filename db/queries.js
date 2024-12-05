@@ -11,6 +11,6 @@ exports.getMsgs = async () => {
   return row;
 };
 
-exports.insertMsgs = async (arg) => {
-  await pool.query(`INSERT INTO messages values (%1, %2)`, arg);
+exports.insertMsgs = async (args) => {
+  await pool.query(`INSERT INTO messages values (%1, %2)`, args);
 };
