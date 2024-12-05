@@ -13,9 +13,6 @@ CREATE TABLE IF NOT EXISTS messages(
   time TIME NOT NULL DEFAULT CURRENT_TIME
 );
 
-INSERT INTO messages (user_name, text) values('Akram', 'Hi there!');
-INSERT INTO messages (user_name, text) values('Jessie', 'Hello world!');
-
 `;
 
 async function main() {
