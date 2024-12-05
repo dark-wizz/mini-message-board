@@ -1,11 +1,12 @@
 const { Router } = require("express");
-const messages = require("../models/messages.js");
+const db = require("../db/queries.js");
 
 const msgRouter = Router();
 
-msgRouter.get("/:name", (req, res) => {
-  const { name } = req.params;
-  res.render("message", { name: name, messages: messages });
+msgRouter.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  const [m] = await db.getMsg(id);
+  res.render("message", { m });
 });
 
 module.exports = msgRouter;

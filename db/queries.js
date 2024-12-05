@@ -10,3 +10,10 @@ exports.getAllData = async () => {
 exports.insertMsgs = async (args) => {
   await pool.query(`INSERT INTO messages values ($1, $2)`, args);
 };
+
+exports.getMsg = async (id) => {
+  const { rows } = await pool.query(`SELECT * from messages where id = $1`, [
+    id,
+  ]);
+  return rows;
+};
